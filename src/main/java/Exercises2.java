@@ -1,7 +1,5 @@
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Scanner;
 
 public class Exercises2 {
 
@@ -13,8 +11,18 @@ public class Exercises2 {
     You can return the answer in any order.
     */
 
-    public int[] twoSum(int[] nums, int target) {
-        // TODO
+    public static int[] twoSum(int n, int t) {
+        Scanner input = new Scanner(System.in);
+        int nums[] = new int[n];
+        for (int i = 0 ; i<n ; i++){
+            nums[i] = input.nextInt();
+        }
+        for (int i = 0 ; i<n ;i++){
+            if (nums[i] + nums[i+1] == t){
+                System.out.print("your result is {" + i + "," + (i+1)  + "}" );
+                break;
+            }
+        }
         return null;
     }
 
@@ -48,8 +56,27 @@ public class Exercises2 {
     Given a roman numeral, convert it to an integer.
     */
 
-    public int romanToInt(String s) {
-        // TODO
+    public static int romanToInt(String st) {
+        int n = st.length();
+        char[] s = st.toCharArray();
+        int sum = 0;
+        for (int i = 0; i<n ; i++){
+            if (s[i] == 'I' )
+                sum += 1 ;
+            else if (s[i] == 'V')
+                sum += 5 ;
+            else if (s[i] == 'X')
+                sum += 10 ;
+            else if (s[i] == 'L')
+                sum += 50 ;
+            else if (s[i] == 'C')
+                sum += 100 ;
+            else if (s[i] == 'D')
+                sum += 500 ;
+            else if (s[i] == 'M')
+                sum += 1000 ;
+        }
+        System.out.print("Your result is " + sum);
         return 0;
     }
 
@@ -64,6 +91,23 @@ public class Exercises2 {
     }
 
     public static void main(String[] args) {
-        // test your code here!
+        System.out.print("Enter 1 for TwoSum function\nEnter 2 for romanToInt function\n");
+        Scanner input = new Scanner(System.in);
+        int n1 = input.nextInt();
+        switch (n1){
+            case 1 :
+                System.out.print("Enter the number of elements you want to write\n");
+                int n2 = input.nextInt();
+                System.out.print("\nEnter your target number\n");
+                int t = input.nextInt();
+                twoSum(n2,t);
+                break;
+            case 2 :
+                    System.out.print("Enter the string\n");
+                    input = new Scanner(System.in);
+                    String st = input.nextLine();
+                    romanToInt(st);
+
+        }
     }
 }
